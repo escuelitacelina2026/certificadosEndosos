@@ -25,7 +25,7 @@ const App = () => {
       doc.addImage(img, 'PNG',15, 10, 60, 15);
       doc.setFontSize(10);
       doc.text('CELINA Bróker de Seguros', 70, 15);
-      doc.text('Generador de Certificados de Endoso', 70, 22);
+      doc.text('Certificados de Endoso', 70, 22);
       
       doc.line(10, 35, 200, 35); // Línea divisoria
 
@@ -49,7 +49,7 @@ const App = () => {
 
       // Pie de página
       doc.setFontSize(10);
-      doc.text('Documento generado para uso interno - Celina Bróker', 105, 280, { align: 'center' });
+      doc.text('Este Certificado de Endoso Acompaña a la Poliza Emitida - Celina Bróker', 105, 280, { align: 'center' });
 
       doc.save(`Endoso_${datos.poliza}.pdf`);
     };
