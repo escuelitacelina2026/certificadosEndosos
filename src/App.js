@@ -22,7 +22,7 @@ const App = () => {
 
     img.onload = () => {
       // Encabezado con Logo
-      doc.addImage(img, 'PNG', 10, 10, 50, 20);
+      doc.addImage(img, 'PNG',15, 10, 40, 25);
       doc.setFontSize(10);
       doc.text('CELINA Bróker de Seguros', 70, 15);
       doc.text('Generador de Certificados de Endoso', 70, 22);
