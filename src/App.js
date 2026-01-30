@@ -3,8 +3,8 @@ import { jsPDF } from 'jspdf';
 
 const App = () => {
   const [datos, setDatos] = useState({
-    fecha: '',
-    Compañia de seguros: '',
+    Fecha: '',
+    CIA: '',
     Poliza: '',
     Asegurado: '',
     Endoso: ''
