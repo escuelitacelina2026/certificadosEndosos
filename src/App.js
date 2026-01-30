@@ -3,11 +3,11 @@ import { jsPDF } from 'jspdf';
 
 const App = () => {
   const [datos, setDatos] = useState({
-    Fecha: '',
-    CIA: '',
-    Poliza: '',
-    Asegurado: '',
-    Endoso: ''
+    fecha: '',
+    compania: '', // Nuevo campo agregado
+    poliza: '',
+    asegurado: '',
+    endoso: ''
   });
 
   const handleChange = (e) => {
@@ -25,7 +25,7 @@ const App = () => {
       // 1. EL LOGO: Configurado para ser alargado y nítido (Ancho 75, Alto 15)
       doc.addImage(img, 'PNG', 15, 12, 75, 15); 
       
-      // 2. TEXTO DEL ENCABEZADO: Movido a la derecha (95) para que no se encime con el logo
+      // 2. TEXTO DEL ENCABEZADO: Espaciado para que no se encime
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
       doc.text('CELINA Bróker de Seguros', 95, 18);
@@ -34,7 +34,7 @@ const App = () => {
       doc.setFont('helvetica', 'normal');
       doc.text('Certificados de Endoso', 95, 25);
       
-      // 3. LA LÍNEA: Bajada a la posición 40 para dar espacio y que no se vea amontonado
+      // 3. LA LÍNEA: Espacio visual limpio
       doc.setDrawColor(0);
       doc.setLineWidth(0.5);
       doc.line(15, 40, 195, 40); 
@@ -44,25 +44,25 @@ const App = () => {
       doc.setFont('helvetica', 'bold');
       doc.text('CERTIFICADO DE ENDOSO', 105, 55, { align: 'center' });
 
-      // 5. CUERPO DEL DOCUMENTO (DATOS)
+      // 5. CUERPO DEL DOCUMENTO (DATOS INCLUYENDO COMPAÑÍA)
       doc.setFontSize(11);
       doc.setFont('helvetica', 'normal');
-      doc.text(`Fecha: ${datos.fecha}`, 20, 75);
-      doc.text(`Póliza N°: ${datos.poliza}`, 20, 85);
-      doc.text(`Asegurado: ${datos.asegurado}`, 20, 95);
+      doc.text(`Fecha: ${datos.fecha}`, 20, 70);
+      doc.text(`Compañía de Seguros: ${datos.compania}`, 20, 80); // Nueva línea en el PDF
+      doc.text(`Póliza N°: ${datos.poliza}`, 20, 90);
+      doc.text(`Asegurado: ${datos.asegurado}`, 20, 100);
 
       doc.setFont('helvetica', 'bold');
-      doc.text('DETALLE DEL ENDOSO:', 20, 110);
+      doc.text('DETALLE DEL ENDOSO:', 20, 115);
       
       doc.setFont('helvetica', 'normal');
-      // Ajuste automático de texto para el detalle del endoso
       const splitEndoso = doc.splitTextToSize(datos.endoso, 170);
-      doc.text(splitEndoso, 20, 120);
+      doc.text(splitEndoso, 20, 125);
 
       // Pie de página
       doc.setFontSize(9);
       doc.setTextColor(100);
-      doc.text('Este certificado de endoso acompaña a la poliza original - Celina Bróker de Seguros', 105, 285, { align: 'center' });
+      doc.text('Documento de uso interno - Celina Bróker de Seguros', 105, 285, { align: 'center' });
 
       doc.save(`Endoso_${datos.poliza}.pdf`);
     };
@@ -82,6 +82,11 @@ const App = () => {
             <label className="block text-sm font-medium text-gray-700">Fecha</label>
             <input type="date" name="fecha" onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
           </div>
+          {/* NUEVO CAMPO EN EL FORMULARIO */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Compañía de Seguros</label>
+            <input type="text" name="compania" placeholder="Ej: Mercantil Andina, Federacion Patronal..." onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
+          </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Número de Póliza</label>
             <input type="text" name="poliza" placeholder="Ej: 123456" onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
@@ -92,7 +97,7 @@ const App = () => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Texto del Endoso</label>
-            <textarea name="endoso" rows="6" placeholder="Escriba aquí los cambios..." onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm"></textarea>
+            <textarea name="endoso" rows="5" placeholder="Escriba aquí los cambios..." onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm"></textarea>
           </div>
           <button 
             onClick={generarPDF}
