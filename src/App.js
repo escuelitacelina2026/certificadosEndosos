@@ -23,12 +23,12 @@ const App = () => {
 
     img.onload = () => {
       // Encabezado con Logo
-      doc.addImage(img, 'PNG',15, 10, 35, 10);
+      doc.addImage(img, 'PNG',16, 12, 65, 18);
       doc.setFontSize(10);
-      doc.text('CELINA Bróker de Seguros', 70, 15);
-      doc.text('Certificados de Endoso', 70, 22);
+      doc.text('CELINA Bróker de Seguros', 90, 18);
+      doc.text('Certificados de Endoso', 20, 24);
       
-      doc.line(10, 35, 200, 35); // Línea divisoria
+      doc.line(16, 38, 196, 38); // Línea divisoria
 
       // Cuerpo del documento
       doc.setFontSize(12);
