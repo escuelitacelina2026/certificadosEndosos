@@ -47,7 +47,7 @@ const App = () => {
       doc.setFontSize(11);
       doc.setFont('helvetica', 'normal');
       doc.text(`Fecha: ${datos.fecha}`, 20, 70);
-      doc.text(`Compañía de Seguros: ${datos.compania}`, 20, 80); // Nueva línea en el PDF
+      //doc.text(`Compañía de Seguros: ${datos.compania}`, 20, 80); // Nueva línea en el PDF//
       doc.text(`Póliza N°: ${datos.poliza}`, 20, 90);
       doc.text(`Asegurado: ${datos.asegurado}`, 20, 100);
 
@@ -61,7 +61,7 @@ const App = () => {
       // Pie de página
       doc.setFontSize(9);
       doc.setTextColor(100);
-      doc.text('Documento de uso interno - Celina Bróker de Seguros', 105, 285, { align: 'center' });
+      doc.text('Certificado de endoso que acompaña a la poliza original - Celina Bróker de Seguros', 105, 285, { align: 'center' });
 
       doc.save(`Endoso_${datos.poliza}.pdf`);
     };
@@ -83,10 +83,10 @@ const App = () => {
           </div>
           {/* NUEVO CAMPO EN EL FORMULARIO */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Compañía de Seguros</label>
-            <input type="text" name="compania" placeholder="Ej: Mercantil Andina, Federacion Patronal..." onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
+            //<label className="block text-sm font-medium text-gray-700">Compañía de Seguros</label>
+            //<input type="text" name="compania" placeholder="Ej: Mercantil Andina, Federacion Patronal..." onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
           </div>
-          <div>
+         // <div>
             <label className="block text-sm font-medium text-gray-700">Número de Póliza</label>
             <input type="text" name="poliza" placeholder="Ej: 123456" onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm" />
           </div>
