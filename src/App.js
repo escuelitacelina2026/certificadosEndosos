@@ -4,7 +4,6 @@ import { jsPDF } from 'jspdf';
 const App = () => {
   const [datos, setDatos] = useState({
     fecha: '',
-    compania: '', // Nuevo campo agregado
     poliza: '',
     asegurado: '',
     endoso: ''
