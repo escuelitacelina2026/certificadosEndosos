@@ -47,7 +47,6 @@ const App = () => {
       doc.setFontSize(11);
       doc.setFont('helvetica', 'normal');
       doc.text(`Fecha: ${datos.fecha}`, 20, 70);
-      //doc.text(`Compañía de Seguros: ${datos.compania}`, 20, 80); // Nueva línea en el PDF//
       doc.text(`Póliza N°: ${datos.poliza}`, 20, 90);
       doc.text(`Asegurado: ${datos.asegurado}`, 20, 100);
 
