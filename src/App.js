@@ -23,7 +23,7 @@ const App = () => {
 
     img.onload = () => {
       // Encabezado con Logo
-      doc.addImage(img, 'PNG',15, 10, 60, 15);
+      doc.addImage(img, 'PNG',15, 10, 45, 20);
       doc.setFontSize(10);
       doc.text('CELINA Bróker de Seguros', 70, 15);
       doc.text('Certificados de Endoso', 70, 22);
@@ -50,7 +50,7 @@ const App = () => {
 
       // Pie de página
       doc.setFontSize(10);
-      doc.text('Este Certificado de Endoso Acompaña a la Poliza Emitida - Celina Bróker', 105, 280, { align: 'center' });
+      doc.text('Este Certificado de Endoso, acompaña a la Poliza Emitida - Celina Bróker', 105, 280, { align: 'center' });
 
       doc.save(`Endoso_${datos.poliza}.pdf`);
     };
