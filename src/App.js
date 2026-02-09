@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { jsPDF } from 'jspdf';
+import './App.css';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -9,5 +9,109 @@ function App() {
     detalle: ''
   });
 
-  // Este es el código que me pasaste, ahora integrado directamente
-  const LOGO_BASE64 = "data:image/png;base64,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DUWSuNB3RPGuRslcrQEWb8255ga1i6UK4tcN51+498bsLox2A9c5ObWYq9lvH19HOXDbTA/N61YLetBb5qlKh916v+1Ivkz3yH7c+cDgh7bZiwwkCq+HDZaHaIbYR/tuI524bgFADg8J72y69OM5zMkO0aY6t/FWbKS07Ygt9nnaKgRGby/EW8HaF0nAUmSNNhwiYcHxaX4XYF8CKJS/c+COJcNO4thaijczD1PEmF2Jf4+umnr+Zos2LtQGN0tt61YLeNPVyRkrxdAJlJ3rdl3qtQW6wXomV3xswxByOpVzCFtU2Qm10q7jNDQVCDQwWeWBPvefExSg1TXVJx0XXuJ23hiJxanxe87AEi6rXqhHUcT+vNry+978HtMNYvVfV96WjXq/mbe9mF/7f0t/M7Y8097S6S82V/Fm79pL6tY83tBvN8C9XpY/99/v9vH76WvA7+reG8Y9pL9Zl/n+T3C77Z7/H7YtW33O75P8Pt7w+/jKntn/06Y7Z7Z67X73f6057X7p6N9U78f9n59H/n96MdrH57M1+9F2Onv1/eR349+X99Hfj86X7/9fT/68drH9/99S7Pj66bfV8+Hvl7/Dvep3+d+X9fH9fT/eD6f/n7X/L5+X/6+309+P/p9XfP7+H3p67u+b8Lv+nr9Xvh9XfP7uv78+335+r35++Hn+H3pe/l9fX7/71vC9029Xp7fI78XvT+ez6e/T/5e+L78vPx88nvy88nP+73p8/u/X8L/C7Pz7/76Tvwv8Pt9V/68e/Pnz76+ZfBvga5go43+979n57dv/vLTVoTCk1RVBRckuBEVKDIcS+sxC7n2gemS/I4Z+sLvVOuzEPtK7TkEYsZqsUTBYAnp6lWDV42zhI/0xWj/4GHMhmVQNVfMahVsWEcsPY/WvNTvsyquNUw5Jvcsev9m8WoEUYNpPJwjFxcn3snFpYm3K8WpDaupZ+A6UuHQTm9pZ9K9oD6T7Y6NnwgknWTiePzdIslp86GBTfVGb87v7TP6pU6P88MAnKIdP5fqY8l4OtWEvap2UqfVpI50I0OEPKMeIAnU9e9YmS89S/Xv29jKzJQ0KLAYWH65biD/PwD98W62C92Z53+K2p+j9mfV/qySInD8v6uT2unXv6tY673S/68T1nNf7Z7llIgI0lXSn7LDmICO2XkvqP2a7G7bPI6x7zrPc64DDxlwqHev/eCp/Nxm8lz+49HLH0Y7eX6PdM869Jp60dReu6H7Tf+nL6uTf5+H/77r/8Yf0W57H6eS6Tf9O2r7NtmTqN2H/j3f+4X2f3o/t9f/+j3+m8p0B/36f1+fV697u/18vPfr++r09f98vU6/ruV7vU96X/u5/X/vX68T1mvV4107OOnP796H7XW97vP96vXv2vf97/vX6vX39T79v07Yy9/u57V7re9F/98v9+f3m+r0Of98N1+vT06/7/v7Xf83p0+v/+fvC+v16vX39T79v07Yy9/u57V7re9F/98v9+f3m+r0Of98N1+vT06/7/v7Xf83p0+v/+fvC+v16vX39T79v07Yy9/u57V7re9F/98v9+f3m+r0Of98N1+vT06/7/v7Xf83p0+v/+fvC+v16vX39T79v07Yy9/u57V7re9F/98v9+f3m+r0Of98N1+vT06/7/v7Xf83p0+v/+fvC+v16vX39T79v07Yy9/u57V7re9F/98v9+f3m+r0Of98N1+vT06/7/v7Xf83p0+v/+fvC+v16vX39T79v07Yy9/u57V
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleDownload = () => {
+    console.log("Generando PDF con:", formData);
+    // Aquí iría tu lógica de jsPDF o similar
+  };
+
+  return (
+    <div className="App" style={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '600px', margin: '0 auto' }}>
+      
+      {/* CONTENEDOR DEL LOGO: Aquí es donde aplicamos el cambio para que no pierda forma */}
+      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        <img 
+          src="/logo_celina.PNG" 
+          alt="Logo Swiss Medical Seguros" 
+          style={{ 
+            width: '350px',      // Lo hacemos más alargado (ajusta este valor a tu gusto)
+            height: 'auto',      // El alto se ajusta solo para NO deformar
+            objectFit: 'contain', // Asegura que el contenido mantenga su proporción
+            display: 'block',
+            margin: '0 auto'
+          }} 
+        />
+      </div>
+
+      <h2 style={{ color: '#1a3a8a', textAlign: 'center' }}>Generador de Endosos</h2>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <div>
+          <label>Fecha</label>
+          <input 
+            type="date" 
+            name="fecha" 
+            style={inputStyle} 
+            onChange={handleChange} 
+          />
+        </div>
+
+        <div>
+          <label>Número de Póliza</label>
+          <input 
+            type="text" 
+            name="poliza" 
+            placeholder="Ej: 123456" 
+            style={inputStyle} 
+            onChange={handleChange} 
+          />
+        </div>
+
+        <div>
+          <label>Nombre del Asegurado</label>
+          <input 
+            type="text" 
+            name="asegurado" 
+            placeholder="Nombre completo" 
+            style={inputStyle} 
+            onChange={handleChange} 
+          />
+        </div>
+
+        <div>
+          <label>Texto del Endoso</label>
+          <textarea 
+            name="detalle" 
+            placeholder="Escriba aquí los cambios..." 
+            style={{ ...inputStyle, height: '100px' }} 
+            onChange={handleChange} 
+          />
+        </div>
+
+        <button 
+          onClick={handleDownload}
+          style={{
+            backgroundColor: '#1a3a8a',
+            color: 'white',
+            padding: '12px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            marginTop: '10px'
+          }}
+        >
+          DESCARGAR ENDOSO PDF
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const inputStyle = {
+  width: '100%',
+  padding: '10px',
+  borderRadius: '5px',
+  border: '1px solid #ccc',
+  boxSizing: 'border-box',
+  marginTop: '5px'
+};
+
+export default App;
